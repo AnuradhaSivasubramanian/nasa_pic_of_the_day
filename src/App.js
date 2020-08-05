@@ -13,7 +13,6 @@ class App extends Component {
   componentDidMount = () => {
     const endDate = new Date();
     const startDate = new Date(`2020-${endDate.getMonth()}-01`);
-    console.log(endDate.getTime());
     getNASAPictures(startDate, endDate).then((res) => {
       this.setState({
         pictures: [...res.filter((picture) => picture.media_type === "image")],
