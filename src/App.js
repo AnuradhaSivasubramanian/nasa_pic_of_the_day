@@ -1,25 +1,66 @@
-import React, { useEffect } from "react";
+import React, { Component } from "react";
 import "./App.css";
-import { getNASAPictures } from "./NasaAPI";
+import { getNASAPictures } from "./helper/fetchAPIData";
+import applyFilter from "./helper/applyFilter";
 
-function App() {
-  const [pictures, updatePictures] = React.useState(null);
+class App extends Component {
+  state = {
+    pictures: [],
+    filteredPictures: [],
+    filter: "month",
+  };
 
-  useEffect(() => {
-    if (!pictures) {
-      const startDate = new Date("2020-07-01T08:28:41.917Z");
-      const endDate = new Date();
-      getNASAPictures(startDate, endDate).then((res) => {
-        updatePictures(res);
+  componentDidMount = () => {
+    const endDate = new Date();
+    const startDate = new Date(`2020-${endDate.getMonth()}-01`);
+    console.log(endDate.getTime());
+    getNASAPictures(startDate, endDate).then((res) => {
+      this.setState({
+        pictures: [...res.filter((picture) => picture.media_type === "image")],
+        filteredPictures: [
+          ...res.filter((picture) => picture.media_type === "image"),
+        ],
       });
-    }
-  }, [pictures]);
+    });
+  };
 
-  return (
-    <div className="App">
-      {pictures && pictures.map((picture) => <div key={picture.date}>{picture.title}</div>)}
-    </div>
-  );
+  handleChange = (value) => {
+    this.setState({
+      filteredPictures: this.state.pictures.filter(
+        (picture) =>
+          new Date(picture.date).getTime() >= applyFilter(value).getTime() &&
+          new Date(picture.date).getTime() <= new Date().getTime()
+      ),
+      filter: value,
+    });
+
+    console.log(applyFilter(value));
+  };
+
+  render() {
+    return (
+      <div>
+        <label>
+          Filter pictures from:
+          <select
+            value={this.state.filter}
+            onChange={(e) => this.handleChange(e.target.value)}
+          >
+            <option value="month">Last Month</option>
+            <option value="week">Last Week</option>
+            <option value="twoweeks">Last 2 Weeks</option>
+          </select>
+        </label>
+        {this.state.filteredPictures.map((picture) => (
+          <div key={picture.date}>
+            <img src={picture.url} alt="NasaPic"></img>
+            <p>{picture.date}</p>
+            <p>{picture.title}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
