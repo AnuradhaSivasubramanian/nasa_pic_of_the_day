@@ -1,10 +1,10 @@
-import transformDateForAPIRequest from "./transformDateForAPIRequest";
-
 const applyFilter = (filter) => {
   let d = new Date();
   switch (filter) {
     case "month":
-      return new Date(`2020-${d.getMonth()}-01`);
+      d.setTime(d.getTime() - 30 * 24 * 60 * 60 * 1000);
+      let month = new Date(d);
+      return month;
 
     case "week":
       d.setTime(d.getTime() - 7 * 24 * 60 * 60 * 1000);

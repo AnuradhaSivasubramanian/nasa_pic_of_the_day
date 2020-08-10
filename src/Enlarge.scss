@@ -1,0 +1,31 @@
+@import "./global.scss";
+
+.enlarge--wrapper {
+  background-color: $background;
+  z-index: 3;
+  opacity: 0;
+  animation: FadeIn forwards 1s ease-out;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+.FadeIn {
+  opacity: 0;
+}
+
+@keyframes FadeIn {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.enlarge--close_icon {
+  width: 20px;
+}

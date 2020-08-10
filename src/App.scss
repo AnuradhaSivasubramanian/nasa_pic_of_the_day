@@ -1,0 +1,105 @@
+@import "./global.scss";
+
+// .app--wrapper_full {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+.app--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: FadeIn forwards 1s ease-out;
+  opacity: 0;
+  z-index: 1;
+}
+
+.FadeIn {
+  opacity: 0;
+}
+
+@keyframes FadeIn {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.app--display_none {
+  display: none;
+}
+
+.app--pictures_section {
+  width: 85%;
+  margin-top: 7.5%;
+  margin-bottom: 7.5%;
+  background-color: $background;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  border-radius: 4px;
+}
+// .app--pictures_section::after {
+//   content: "";
+//   flex: auto;
+// }
+.app--select {
+  margin-top: 7.5%;
+}
+
+.app--media_card {
+  margin: 20px 10px 20px 10px;
+  background-color: $white;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: $box-shadow;
+}
+.app--image_wrapper {
+  background-color: Black;
+  min-height: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.app--date_overlay {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background-color: $purple;
+  color: $white;
+  padding: 5px 8px 5px 8px;
+  border-radius: 4px;
+}
+.app--image {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  max-height: 20em;
+  max-width: 25em;
+  height: auto;
+  width: 100%;
+}
+
+.app--media_card_text {
+  margin-left: 12px;
+  margin-right: 8px;
+  min-height: 5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app--media_Card_title {
+  color: $textcolor;
+  max-width: 15em;
+  font-weight: 700;
+}
+.app--media_Card_copyright {
+  color: $secondarytext;
+  max-width: 10em;
+  font-size: 0.9em;
+}

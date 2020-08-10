@@ -2,7 +2,7 @@ import transformDateForAPIRequest from "./transformDateForAPIRequest";
 
 const NASA_KEY = process.env.REACT_APP_API_KEY;
 
-export function getNASAPictures(startDate, endDate) {
+const getNASAPictures = (startDate, endDate) => {
   return new Promise(async (resolve, reject) => {
     try {
       const startDateFormatted = transformDateForAPIRequest(startDate);
@@ -27,4 +27,6 @@ export function getNASAPictures(startDate, endDate) {
       reject(error);
     }
   });
-}
+};
+
+export default getNASAPictures;
