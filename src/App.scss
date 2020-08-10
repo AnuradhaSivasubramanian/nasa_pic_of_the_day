@@ -7,9 +7,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: FadeIn forwards 1s ease-out;
-  opacity: 0;
-  z-index: 1;
 }
 
 .FadeIn {
@@ -40,6 +37,16 @@
   justify-content: space-evenly;
   align-content: flex-start;
   border-radius: 4px;
+  animation: FadeIn forwards 1s ease-out;
+  opacity: 0;
+}
+.app--loader {
+  width: 85%;
+  margin-top: 7.5%;
+  margin-bottom: 7.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app--media_card {

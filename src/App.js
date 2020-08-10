@@ -5,6 +5,7 @@ import applyFilter from "./helper/applyFilter";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Enlarge from "./Enlarge";
 
 class App extends Component {
@@ -89,27 +90,33 @@ class App extends Component {
             </InputLabel>
           </div>
 
-          <div className="app--pictures_section">
-            {this.state.filteredPictures.map((picture) => (
-              <div key={picture.date} className="app--media_card">
-                <div className="app--image_wrapper">
-                  <img
-                    className="app--image"
-                    src={picture.url}
-                    alt="NasaPic"
-                    onClick={() => this.handleMountEnlarge(picture)}
-                  ></img>
+          {this.state.pictures.length === 0 ? (
+            <div className="app--loader">
+              <CircularProgress />
+            </div>
+          ) : (
+            <div className="app--pictures_section">
+              {this.state.filteredPictures.map((picture) => (
+                <div key={picture.date} className="app--media_card">
+                  <div className="app--image_wrapper">
+                    <img
+                      className="app--image"
+                      src={picture.url}
+                      alt="NasaPic"
+                      onClick={() => this.handleMountEnlarge(picture)}
+                    ></img>
+                  </div>
+                  <p className="app--date_overlay">{picture.date}</p>
+                  <div className="app--media_card_text">
+                    <p className="app--media_Card_title">{picture.title}</p>
+                    <p className="app--media_Card_copyright">
+                      {picture.copyright}
+                    </p>
+                  </div>
                 </div>
-                <p className="app--date_overlay">{picture.date}</p>
-                <div className="app--media_card_text">
-                  <p className="app--media_Card_title">{picture.title}</p>
-                  <p className="app--media_Card_copyright">
-                    {picture.copyright}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     );
