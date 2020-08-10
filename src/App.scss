@@ -1,10 +1,8 @@
 @import "./global.scss";
 
-// .app--wrapper_full {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
+.app--heading {
+  font-size: 2em;
+}
 .app--wrapper {
   display: flex;
   flex-direction: column;
@@ -43,13 +41,6 @@
   align-content: flex-start;
   border-radius: 4px;
 }
-// .app--pictures_section::after {
-//   content: "";
-//   flex: auto;
-// }
-.app--select {
-  margin-top: 7.5%;
-}
 
 .app--media_card {
   margin: 20px 10px 20px 10px;
@@ -83,6 +74,7 @@
   max-width: 25em;
   height: auto;
   width: 100%;
+  cursor: pointer;
 }
 
 .app--media_card_text {

@@ -1,3 +1,9 @@
+/**
+ * applyFilter returns date until which the pictures are to be displayed based on the filter value
+ * @param {string} filter
+ * @returns Date
+ */
+
 const applyFilter = (filter) => {
   let d = new Date();
   switch (filter) {

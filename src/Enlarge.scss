@@ -6,11 +6,14 @@
   opacity: 0;
   animation: FadeIn forwards 1s ease-out;
   position: absolute;
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
+  background: rgba(239, 243, 248, 0.7);
+  width: 100vw;
+  height: 100vh;
   top: 0%;
   left: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .FadeIn {
@@ -26,6 +29,58 @@
   }
 }
 
+.enlarge--background {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+}
+
+.close--button {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
 .enlarge--close_icon {
+  cursor: pointer;
   width: 20px;
+}
+
+.enlarge--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enlarge--image {
+  width: 90vw;
+  height: 40vh;
+}
+
+@media screen and (min-width: 760px) {
+  .enlarge--image {
+    width: 80vw;
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .enlarge--image {
+    width: 60vw;
+    height: 65vh;
+  }
+  .enlarge--background {
+    height: 80vh;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .enlarge--image {
+    width: 50vw;
+    height: 65vh;
+  }
+  .enlarge--background {
+    height: 93vh;
+  }
 }

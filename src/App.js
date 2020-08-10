@@ -70,6 +70,9 @@ class App extends Component {
             !this.state.mountEnlarge ? "app--wrapper" : "app--display_none"
           }
         >
+          <div className="app--heading">
+            <h3>Welcome to Nasa Picture of the Day</h3>
+          </div>
           <div className="app--select">
             <InputLabel>
               Choose Pictures from <span>&nbsp;</span>

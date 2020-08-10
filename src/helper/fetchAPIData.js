@@ -2,6 +2,12 @@ import transformDateForAPIRequest from "./transformDateForAPIRequest";
 
 const NASA_KEY = process.env.REACT_APP_API_KEY;
 
+/**
+ * getNASAPictures fetches the pictures from the API between 2 given dates
+ * @param {Date} startDate
+ * @param {Date} endDate
+ */
+
 const getNASAPictures = (startDate, endDate) => {
   return new Promise(async (resolve, reject) => {
     try {
